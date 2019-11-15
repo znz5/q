@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Cookies</title>
+</head>
+<script>
+    function writeCookie() {
+               if( document.myform.firstname.value == "" ) {
+                  alert("Enter some value!");
+                  return;
+               }
+        cookievalue = escape(document.myform.firstname.value) + ";";
+        document.cookie = "name=" + cookievalue;
+        document.write ("Thank you!");
+    }
+    
+    function readCookie() {
+        if (document.cookie.firstname.value != "") {
+            var allcookies = document.cookie;
+            // Get all the cookies pairs in an array
+            cookiearray = allcookies.split(';');
+            // Now take key value pair out of this array
+            name = cookiearray[i].split('=')[0];
+            value = cookiearray[i].split('=')[1];
+            document.write ("Welcome back, " + name);
+            }
+        }
+    </script>
+<body onload="readCookie()">
+    <form name = "myform" action = "">
+         Enter name: <input type = "text" name = "firstname"/>
+         <input type = "button" value = "Submit" onclick = "writeCookie();"/>
+    </form>   
+</body>
+</html>
